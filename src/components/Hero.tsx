@@ -114,43 +114,35 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* RIGHT — editorial pull-quote card */}
+        {/* RIGHT — hero photo (real treatment session) */}
         <motion.aside
           initial={reduced ? false : { opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={t(0.55, 1.0)}
           className="relative"
         >
-          <div className="relative aspect-[4/5] rounded-2xl bg-gradient-to-br from-[color:var(--primary-deep)] via-[color:var(--primary)] to-[color:var(--primary-soft)] overflow-hidden">
+          <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-[color:var(--surface-soft)]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/hero-treatment.jpg"
+              alt="Fisioterapeuta de MAGNA tractant una pacient amb teràpia manual"
+              className="w-full h-full object-cover"
+              loading="eager"
+              fetchPriority="high"
+            />
+            {/* Subtle warm overlay to integrate with palette */}
             <div
               aria-hidden
-              className="absolute inset-0 opacity-30"
+              className="absolute inset-0 mix-blend-multiply opacity-15"
               style={{
-                backgroundImage:
-                  "radial-gradient(circle at 25% 15%, rgba(255,252,246,0.45), transparent 45%), radial-gradient(circle at 80% 85%, rgba(255,252,246,0.18), transparent 45%)",
+                background:
+                  "linear-gradient(180deg, transparent 60%, rgba(74,52,38,0.4) 100%)",
               }}
             />
-
-            <span
-              aria-hidden
-              className="absolute top-6 left-7 font-display-italic text-[color:var(--primary-soft)]/90 text-[7rem] leading-none select-none"
-            >
-              &ldquo;
-            </span>
-
-            <div className="absolute inset-0 flex flex-col justify-end p-7 md:p-9">
-              <p className="font-display text-[1.65rem] md:text-[2rem] leading-[1.1] text-[color:var(--surface)] tracking-tight">
-                El millor tractament és el que t&apos;ensenya
-                <span className="font-display-italic"> a no necessitar-lo.</span>
-              </p>
-              <div className="mt-5 flex items-center gap-3 text-[color:var(--surface)]/80">
-                <span className="rule-thin flex-1 max-w-[40px] !bg-[color:var(--surface)]/40" />
-                <span className="smallcaps text-[color:var(--surface)]/85">Filosofia MAGNA</span>
-              </div>
-            </div>
           </div>
 
-          <div className="hidden md:flex absolute -bottom-5 -left-6 items-center gap-3 bg-[color:var(--surface)] rounded-full border border-[color:var(--border-strong)] pl-3 pr-5 py-2.5">
+          {/* Floating "Sessions d'una hora" pill */}
+          <div className="hidden md:flex absolute -bottom-5 -left-6 items-center gap-3 bg-[color:var(--surface)] rounded-full border border-[color:var(--border-strong)] pl-3 pr-5 py-2.5 shadow-[0_10px_24px_-12px_rgba(74,52,38,0.35)]">
             <span className="w-8 h-8 rounded-full bg-[color:var(--surface-soft)] flex items-center justify-center text-[color:var(--primary-deep)]">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10" />
@@ -163,12 +155,19 @@ export default function Hero() {
             </span>
           </div>
 
+          {/* Floating numeral */}
           <span
             aria-hidden
             className="hidden lg:block absolute -top-10 -right-4 numeral text-[7rem]"
           >
             01
           </span>
+
+          {/* Editorial caption beneath photo */}
+          <div className="mt-6 hidden md:flex items-center gap-3 text-[color:var(--muted)]">
+            <span className="rule-thin w-8 max-w-[40px]" />
+            <span className="smallcaps">Sessió real · Teràpia manual</span>
+          </div>
         </motion.aside>
       </div>
     </section>

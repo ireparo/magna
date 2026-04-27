@@ -90,6 +90,25 @@ export default function Home() {
     <>
       <Hero />
 
+      {/* Philosophy pull-quote — vivía en la cocoa card del hero anterior */}
+      <section className="py-20 md:py-28 px-6 border-t border-[color:var(--border)]">
+        <div className="max-w-4xl mx-auto text-center">
+          <Reveal>
+            <span aria-hidden className="font-display-italic text-[color:var(--primary-soft)] text-[6rem] md:text-[8rem] leading-none block">&ldquo;</span>
+            <p className="font-display text-[2.2rem] md:text-[3.2rem] lg:text-[3.8rem] leading-[1.05] tracking-[-0.02em] text-[color:var(--foreground)] -mt-8 md:-mt-10">
+              El millor tractament és el que
+              <br className="hidden md:block" /> t&apos;ensenya{" "}
+              <span className="font-display-italic text-[color:var(--primary)]">a no necessitar-lo.</span>
+            </p>
+            <div className="mt-8 flex items-center gap-3 justify-center text-[color:var(--muted)]">
+              <span className="rule-thin w-12" />
+              <span className="smallcaps">Filosofia MAGNA</span>
+              <span className="rule-thin w-12" />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Servicios destacados */}
       <section id="serveis" className="py-24 md:py-32 px-6">
         <div className="max-w-7xl mx-auto">

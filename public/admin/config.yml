@@ -12,11 +12,9 @@ backend:
 media_folder: public/uploads
 public_folder: /uploads
 
-# Idioma del panell
-locale: ca
+# Idioma del panell (Sveltia: en, es, fr, de, it, ja, nl, pt-BR, ru, zh-CN, zh-TW — no hi ha català, fem servir es)
+locale: es
 
-# Missatge personalitzat al desar (commit a main)
-publish_mode: simple
 slug:
   encoding: ascii
   clean_accents: true

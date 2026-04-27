@@ -1,0 +1,80 @@
+backend:
+  name: github
+  repo: ireparo/magna
+  branch: main
+  auth_type: pkce
+  # Client ID de l'OAuth App de GitHub (públic, no és secret).
+  # Crear a github.com/settings/developers, callback URL = https://<domini>/admin/
+  app_id: REPLACE_WITH_GITHUB_OAUTH_APP_CLIENT_ID
+
+# Carpeta on Sveltia puja les imatges. La ruta pública (com es referencia
+# des del web) és /uploads/<nom-fitxer>.
+media_folder: public/uploads
+public_folder: /uploads
+
+# Idioma del panell
+locale: ca
+
+# Missatge personalitzat al desar (commit a main)
+publish_mode: simple
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  - name: site
+    label: Contingut MAGNA
+    description: Edita el contingut visible al web. En desar es publicarà automàticament en 1-2 minuts.
+    files:
+      # ─────────────────────────────────────────
+      - file: content/contact.json
+        label: 📞 Contacte
+        name: contact
+        description: Telèfon, email, adreça i horari del centre. Apareix al peu, a /contacte i als botons de WhatsApp.
+        fields:
+          - { name: phone_display, label: 'Telèfon (com es mostra)', widget: string, hint: 'Ex: +34 666 11 22 33' }
+          - { name: whatsapp_number, label: 'WhatsApp (només números, format internacional)', widget: string, hint: 'Ex: 34666112233 — sense + ni espais' }
+          - { name: email, label: Email, widget: string }
+          - { name: address, label: Adreça, widget: string, hint: 'Ex: C/ Major, 12 — 25001 Lleida' }
+          - { name: hours, label: Horari, widget: string, hint: 'Ex: Dilluns a Divendres · 09:00 – 20:00' }
+
+      # ─────────────────────────────────────────
+      - file: content/team.json
+        label: 👥 Equip
+        name: team
+        description: Membres de l'equip que apareixen a /equip. Pots afegir, treure i reordenar.
+        fields:
+          - name: members
+            label: Membres
+            widget: list
+            label_singular: Membre
+            summary: '{{fields.name}} — {{fields.role}}'
+            fields:
+              - { name: name, label: Nom complet, widget: string }
+              - { name: role, label: Rol, widget: string, hint: 'Ex: Fisioterapeuta · Cofundador/a' }
+              - { name: bio, label: Biografia curta, widget: text }
+              - { name: initials, label: Inicials, widget: string, hint: 'Es mostren si encara no has pujat foto. Ex: MP' }
+              - { name: image, label: Foto, widget: image, required: false, hint: 'Quadrat. Si no en puges es mostren les inicials.' }
+
+      # ─────────────────────────────────────────
+      - file: content/prices.json
+        label: 💶 Tarifes
+        name: prices
+        description: Plans i preus que apareixen a /tarifes. Marca un com a "destacat" per ressaltar-lo.
+        fields:
+          - name: plans
+            label: Plans
+            widget: list
+            label_singular: Pla
+            summary: '{{fields.name}} — {{fields.price}}'
+            fields:
+              - { name: name, label: Nom del pla, widget: string }
+              - { name: price, label: Preu, widget: string, hint: 'Ex: 45€' }
+              - { name: unit, label: Unitat, widget: string, hint: 'Ex: 60 min' }
+              - { name: description, label: Descripció, widget: text }
+              - name: features
+                label: Característiques
+                widget: list
+                field: { name: feature, label: Característica, widget: string }
+              - { name: cta, label: Text del botó, widget: string }
+              - { name: highlighted, label: Destacat (cocoa)?, widget: boolean, default: false }

@@ -90,12 +90,20 @@ export default function Home() {
     <>
       <Hero />
 
-      {/* Philosophy pull-quote — vivía en la cocoa card del hero anterior */}
+      {/* Philosophy pull-quote — sello MAGNA + cita filosófica canónica */}
       <section className="py-20 md:py-28 px-6 border-t border-[color:var(--border)]">
         <div className="max-w-4xl mx-auto text-center">
           <Reveal>
-            <span aria-hidden className="font-display-italic text-[color:var(--primary-soft)] text-[6rem] md:text-[8rem] leading-none block">&ldquo;</span>
-            <p className="font-display text-[2.2rem] md:text-[3.2rem] lg:text-[3.8rem] leading-[1.05] tracking-[-0.02em] text-[color:var(--foreground)] -mt-8 md:-mt-10">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/brand/magna-seal.png"
+              alt="Sello MAGNA Fisioteràpia i Exercici Terapèutic"
+              width={96}
+              height={96}
+              className="mx-auto mb-8 md:mb-10"
+              style={{ display: "block" }}
+            />
+            <p className="font-display text-[2.2rem] md:text-[3.2rem] lg:text-[3.8rem] leading-[1.05] tracking-[-0.02em] text-[color:var(--foreground)]">
               El millor tractament és el que
               <br className="hidden md:block" /> t&apos;ensenya{" "}
               <span className="font-display-italic text-[color:var(--primary)]">a no necessitar-lo.</span>

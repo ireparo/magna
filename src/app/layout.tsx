@@ -3,6 +3,8 @@ import { Fraunces, Manrope } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import SmoothScroll from "@/components/SmoothScroll";
+import CustomCursor from "@/components/effects/CustomCursor";
 import contact from "../../content/contact.json";
 import "./globals.css";
 
@@ -156,10 +158,13 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <SmoothScroll>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </SmoothScroll>
         <FloatingWhatsApp />
+        <CustomCursor />
       </body>
     </html>
   );

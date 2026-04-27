@@ -3,8 +3,18 @@ import ServiceCard from "@/components/ServiceCard";
 import SectionEyebrow from "@/components/SectionEyebrow";
 import Reveal from "@/components/motion/Reveal";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
+import Marquee from "@/components/effects/Marquee";
 import { waLink } from "@/lib/contact";
 import Link from "next/link";
+
+const MARQUEE_SERVICES = [
+  "Fisioteràpia",
+  "Exercici Terapèutic",
+  "Punció Seca",
+  "Teràpia Manual",
+  "Readaptació Esportiva",
+  "Sòl Pelvià",
+];
 
 const HOME_SERVICES = [
   {
@@ -223,6 +233,23 @@ export default function Home() {
             </div>
           </Reveal>
         </div>
+      </section>
+
+      {/* Editorial marquee — service names */}
+      <section className="py-16 md:py-20 border-y border-[color:var(--border)] bg-[color:var(--surface-soft)]/30 overflow-hidden">
+        <Marquee speed={42}>
+          {MARQUEE_SERVICES.map((name, i) => (
+            <span
+              key={i}
+              className="font-display text-[3.6rem] md:text-[5.5rem] lg:text-[6.4rem] leading-none tracking-[-0.025em] text-[color:var(--foreground)] flex items-center"
+            >
+              <span className={i % 2 === 1 ? "font-display-italic text-[color:var(--primary)]" : ""}>
+                {name}
+              </span>
+              <span className="font-display-italic text-[color:var(--primary-soft)] mx-10 md:mx-14">·</span>
+            </span>
+          ))}
+        </Marquee>
       </section>
 
       {/* CTA final */}

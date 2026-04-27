@@ -5,7 +5,7 @@ backend:
   auth_type: pkce
   # Client ID de l'OAuth App de GitHub (públic, no és secret).
   # Crear a github.com/settings/developers, callback URL = https://<domini>/admin/
-  app_id: REPLACE_WITH_GITHUB_OAUTH_APP_CLIENT_ID
+  app_id: Ov23li3TvE51P3RiUPXq
 
 # Carpeta on Sveltia puja les imatges. La ruta pública (com es referencia
 # des del web) és /uploads/<nom-fitxer>.

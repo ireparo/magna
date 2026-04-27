@@ -1,0 +1,83 @@
+name: Deploy a Hostinger (MAGNA)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-magna
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build + deploy estático
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build static export
+        run: npm run build
+
+      - name: Setup SSH key
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          set -e
+          for var in SSH_HOST SSH_PORT SSH_PRIVATE_KEY; do
+            if [ -z "${!var}" ]; then
+              echo "::error::Secret $var no configurado en el repo"
+              exit 1
+            fi
+          done
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          if ! ssh-keygen -y -f ~/.ssh/id_ed25519 > /dev/null 2>&1; then
+            echo "::error::SSH_PRIVATE_KEY no es una clave válida"
+            exit 1
+          fi
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
+
+      - name: Deploy via scp
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          set -e
+          SSH_OPTS="-p $SSH_PORT -i $HOME/.ssh/id_ed25519 -o StrictHostKeyChecking=no -o BatchMode=yes"
+          SCP_OPTS="-P $SSH_PORT -i $HOME/.ssh/id_ed25519 -o StrictHostKeyChecking=no -o BatchMode=yes"
+
+          echo "==> Limpiando $DEPLOY_PATH en remoto..."
+          ssh $SSH_OPTS "$SSH_USER@$SSH_HOST" \
+            "mkdir -p '$DEPLOY_PATH' && rm -rf '$DEPLOY_PATH'/* '$DEPLOY_PATH'/.[!.]* 2>/dev/null; echo OK"
+
+          echo "==> Subiendo build..."
+          scp $SCP_OPTS -r out/* "$SSH_USER@$SSH_HOST:$DEPLOY_PATH/"
+          if [ -f out/.htaccess ]; then
+            scp $SCP_OPTS out/.htaccess "$SSH_USER@$SSH_HOST:$DEPLOY_PATH/"
+          fi
+
+          echo "==> Ajustando permisos..."
+          ssh $SSH_OPTS "$SSH_USER@$SSH_HOST" \
+            "chmod -R u+rwX,go+rX '$DEPLOY_PATH/' && echo OK"
+
+          echo "✅ Deploy OK -> https://royalblue-snail-286673.hostingersite.com"
+
+      - name: Cleanup SSH key
+        if: always()
+        run: rm -f ~/.ssh/id_ed25519

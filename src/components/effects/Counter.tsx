@@ -4,17 +4,22 @@ import { animate, useInView, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Animated number that counts from 0 → value when scrolled into view.
+ * Animated number that counts from 0 → value.
+ *
+ * By default starts immediately on mount (right for above-the-fold stats).
+ * Set `lazy` to wait for scroll-into-view (use only for stats far below fold).
  */
 export default function Counter({
   value,
   suffix = "",
   duration = 1.6,
+  lazy = false,
   className,
 }: {
   value: number;
   suffix?: string;
   duration?: number;
+  lazy?: boolean;
   className?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -22,15 +27,17 @@ export default function Counter({
   const reduced = useReducedMotion();
   const [display, setDisplay] = useState(reduced ? value : 0);
 
+  const shouldRun = lazy ? inView : true;
+
   useEffect(() => {
-    if (!inView || reduced) return;
+    if (!shouldRun || reduced) return;
     const controls = animate(0, value, {
       duration,
       ease: [0.22, 1, 0.36, 1],
       onUpdate: (v) => setDisplay(Math.round(v)),
     });
     return () => controls.stop();
-  }, [inView, value, duration, reduced]);
+  }, [shouldRun, value, duration, reduced]);
 
   return (
     <span ref={ref} className={className}>

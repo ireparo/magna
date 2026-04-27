@@ -55,15 +55,15 @@ export default async function OpengraphImage() {
             style={{
               display: "flex",
               flexDirection: "column",
-              fontSize: "180px",
+              fontSize: "128px",
               fontWeight: 500,
-              letterSpacing: "-0.04em",
-              lineHeight: 0.92,
+              letterSpacing: "-0.035em",
+              lineHeight: 0.94,
               color: "#2A1F18",
             }}
           >
             <span>Mou-te</span>
-            <span style={{ fontStyle: "italic", color: "#8B6F5A" }}>amb confiança.</span>
+            <span style={{ fontStyle: "italic", color: "#8B6F5A", whiteSpace: "nowrap" }}>amb confiança.</span>
           </div>
 
           <div

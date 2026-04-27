@@ -2,10 +2,9 @@ backend:
   name: github
   repo: ireparo/magna
   branch: main
-  auth_type: pkce
-  # Client ID de l'OAuth App de GitHub (públic, no és secret).
-  # Crear a github.com/settings/developers, callback URL = https://<domini>/admin/
-  app_id: Ov23li3TvE51P3RiUPXq
+  # Auth: per defecte Sveltia fa servir el seu proxy OAuth hospedat (api.sveltia.app).
+  # PKCE i implicit estan deprecated/no suportats per GitHub a dia d'avui.
+  # Si en algun moment volem self-host de l'OAuth, configurar `base_url` aquí.
 
 # Carpeta on Sveltia puja les imatges. La ruta pública (com es referencia
 # des del web) és /uploads/<nom-fitxer>.

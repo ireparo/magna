@@ -106,15 +106,21 @@ export default function ContactePage() {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="h-full min-h-[320px] bg-[color:var(--surface-soft)] flex items-center justify-center">
-            <div className="text-center p-8">
-              <span aria-hidden className="numeral text-[4rem] block leading-none">⌖</span>
-              <p className="mt-4 font-display text-[1.4rem] text-[color:var(--foreground)]">
-                Mapa <span className="font-display-italic text-[color:var(--primary)]">pendent</span>
-              </p>
-              <p className="mt-1 text-xs text-[color:var(--muted)] max-w-xs mx-auto">
-                Encastarem un Google Maps quan tinguem direcció definitiva.
-              </p>
+          <div className="relative h-full min-h-[320px] overflow-hidden bg-[color:var(--surface-soft)]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/fachada.jpg"
+              alt="Façana del centre MAGNA Fisioteràpia"
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-gradient-to-t from-[rgba(42,31,24,0.55)] via-transparent to-transparent"
+            />
+            <div className="absolute inset-x-0 bottom-0 p-6 text-[color:var(--surface)]">
+              <span className="smallcaps opacity-85">Façana</span>
+              <p className="mt-1 text-sm italic opacity-80">Mapa de Google encastat — pendent de direcció definitiva.</p>
             </div>
           </div>
         </Reveal>

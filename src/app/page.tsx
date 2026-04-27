@@ -21,50 +21,51 @@ const HOME_SERVICES = [
     title: "Fisioteràpia",
     description:
       "Tractament manual i personalitzat per resoldre lesions, dolors crònics i recuperar la mobilitat amb una visió de conjunt del teu cos.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11.5V8a3 3 0 1 1 6 0v3.5"/><path d="M15 11.5h2.5a2.5 2.5 0 0 1 0 5H15"/><path d="M9 11.5H6.5a2.5 2.5 0 0 0 0 5H9"/><path d="M9 16.5v3a1.5 1.5 0 0 0 3 0v-3"/><path d="M12 16.5v3a1.5 1.5 0 0 0 3 0v-3"/></svg>
-    ),
+    image: "/images/services/fisioterapia.jpg",
+    icon: null,
   },
   {
     title: "Exercici Terapèutic",
     description:
       "Programes d'exercici dissenyats a mida per fer-te més fort, prevenir recaigudes i tornar al que més t'agrada amb confiança.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M6.5 6.5 17.5 17.5"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg>
-    ),
+    image: "/images/services/exercici.jpg",
+    icon: null,
   },
   {
     title: "Punció Seca",
     description:
       "Tècnica precisa per desactivar punts gallet i alleujar dolor muscular profund, integrada dins del teu pla de tractament.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="m21 3-3 3"/><path d="M19 5 7 17"/><path d="m4 20 3-3"/><circle cx="6" cy="18" r="2"/></svg>
-    ),
+    image: "/images/services/puncio.jpg",
+    icon: null,
   },
   {
     title: "Teràpia Manual",
     description:
       "Mobilitzacions, manipulacions i tècniques de teixit tou per restaurar el moviment articular sense forçar.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/><path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
-    ),
+    image: "/images/services/terapia-manual.jpg",
+    icon: null,
   },
   {
     title: "Readaptació Esportiva",
     description:
       "Fas esport? Et tornem al teu nivell —o més enllà— amb una progressió ben pautada i sense saltar-nos passos.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20"/><path d="M12 2a14.5 14.5 0 0 1 0 20"/><path d="M2 12h20"/></svg>
-    ),
+    image: "/images/services/readaptacio.jpg",
+    icon: null,
   },
   {
     title: "Sòl Pelvià",
     description:
       "Valoració i tractament específic en pre-postpart, incontinència, dolor pelvià i salut íntima a totes les etapes.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-    ),
+    image: "/images/services/sol-pelvia.jpg",
+    icon: null,
   },
+];
+
+const CENTRE_PHOTOS = [
+  { src: "/images/centre/sala-1.jpg", caption: "Sala de tractament" },
+  { src: "/images/centre/sala-2.jpg", caption: "Espai exercici" },
+  { src: "/images/centre/sala-3.jpg", caption: "Mirall de control postural" },
+  { src: "/images/centre/sala-4.jpg", caption: "Recepció" },
 ];
 
 const STEPS = [
@@ -238,6 +239,57 @@ export default function Home() {
                   <h3 className="font-display text-[1.6rem] text-[color:var(--foreground)] leading-tight">{s.title}</h3>
                   <p className="mt-3 text-[15px] text-[color:var(--foreground-soft)] leading-relaxed">{s.text}</p>
                 </div>
+              </StaggerItem>
+            ))}
+          </StaggerGroup>
+        </div>
+      </section>
+
+      {/* El centre — gallery of interior photos */}
+      <section className="py-24 md:py-32 px-6 bg-[color:var(--surface-soft)]/40 border-y border-[color:var(--border)]">
+        <div className="max-w-7xl mx-auto">
+          <Reveal>
+            <div className="grid md:grid-cols-[1fr_1.4fr] gap-10 md:gap-16 items-end mb-14">
+              <div>
+                <SectionEyebrow no="04" label="El centre" />
+                <h2 className="font-display text-[2.6rem] sm:text-[3.4rem] md:text-[4rem] leading-[1] tracking-[-0.02em] text-[color:var(--foreground)]">
+                  Un espai pensat
+                  <br />
+                  <span className="font-display-italic text-[color:var(--primary)]">per moure&apos;t.</span>
+                </h2>
+              </div>
+              <p className="text-base md:text-lg text-[color:var(--foreground-soft)] leading-relaxed md:max-w-md md:justify-self-end">
+                Sala de tractament privada, espai d&apos;exercici amb material seriós, mirall per al control postural. Tot pensat perquè la sessió flueixi: del manual al moviment.
+              </p>
+            </div>
+          </Reveal>
+
+          <StaggerGroup className="grid md:grid-cols-12 gap-3 md:gap-4">
+            {CENTRE_PHOTOS.map((p, i) => (
+              <StaggerItem
+                key={p.src}
+                className={
+                  i === 0
+                    ? "md:col-span-7 md:row-span-2"
+                    : i === 1
+                    ? "md:col-span-5"
+                    : i === 2
+                    ? "md:col-span-3"
+                    : "md:col-span-2"
+                }
+              >
+                <figure className="relative overflow-hidden rounded-2xl aspect-[4/3] group">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={p.src}
+                    alt={p.caption}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    loading="lazy"
+                  />
+                  <figcaption className="absolute inset-x-0 bottom-0 p-3 md:p-4 bg-gradient-to-t from-[rgba(42,31,24,0.7)] to-transparent text-[color:var(--surface)] smallcaps text-[10px] md:text-[11px]">
+                    {p.caption}
+                  </figcaption>
+                </figure>
               </StaggerItem>
             ))}
           </StaggerGroup>

@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import SmoothScroll from "@/components/SmoothScroll";
-import CustomCursor from "@/components/effects/CustomCursor";
 import contact from "../../content/contact.json";
 import "./globals.css";
 
@@ -164,7 +163,6 @@ export default function RootLayout({
           <Footer />
         </SmoothScroll>
         <FloatingWhatsApp />
-        <CustomCursor />
       </body>
     </html>
   );

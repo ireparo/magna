@@ -1,0 +1,46 @@
+{
+  "plans": [
+    {
+      "name": "Primera visita",
+      "price": "55€",
+      "unit": "60 min",
+      "description": "Valoració completa, exploració i pla de tractament. Inclou el primer abordatge.",
+      "features": [
+        "Anamnesi i exploració",
+        "Diagnòstic funcional",
+        "Pla de tractament personalitzat",
+        "Pla d'exercicis per a casa"
+      ],
+      "cta": "Demanar primera visita",
+      "highlighted": false
+    },
+    {
+      "name": "Sessió individual",
+      "price": "45€",
+      "unit": "60 min",
+      "description": "Sessions de seguiment combinant teràpia manual i exercici terapèutic.",
+      "features": [
+        "Tractament manual + exercici",
+        "Punció seca si convé",
+        "Revisió i ajust del pla",
+        "Una hora completa per a tu"
+      ],
+      "cta": "Demanar sessió",
+      "highlighted": true
+    },
+    {
+      "name": "Bo de 5 sessions",
+      "price": "200€",
+      "unit": "5 × 60 min",
+      "description": "Per a tractaments més llargs. Estalvia respecte a la sessió individual.",
+      "features": [
+        "Validesa: 3 mesos",
+        "Aplicable a qualsevol servei",
+        "Sense pèrdua si has d'ajornar",
+        "Pots compartir-lo en família"
+      ],
+      "cta": "Comprar bo",
+      "highlighted": false
+    }
+  ]
+}

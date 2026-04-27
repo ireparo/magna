@@ -1,0 +1,25 @@
+{
+  "members": [
+    {
+      "name": "Nom Cognom",
+      "role": "Fisioterapeuta · Cofundador/a",
+      "bio": "Formació en teràpia manual i exercici terapèutic. Especialitzat/da en lesions esportives i columna.",
+      "initials": "NC",
+      "image": ""
+    },
+    {
+      "name": "Nom Cognom",
+      "role": "Fisioterapeuta",
+      "bio": "Especialista en sòl pelvià i salut de la dona. Formació en punció seca.",
+      "initials": "NC",
+      "image": ""
+    },
+    {
+      "name": "Nom Cognom",
+      "role": "Fisioterapeuta",
+      "bio": "Readaptació esportiva i traumatologia. Treball amb esportistes amateurs i federats.",
+      "initials": "NC",
+      "image": ""
+    }
+  ]
+}

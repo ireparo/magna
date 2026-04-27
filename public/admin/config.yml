@@ -75,3 +75,47 @@ collections:
                 field: { name: feature, label: Característica, widget: string }
               - { name: cta, label: Text del botó, widget: string }
               - { name: highlighted, label: Destacat (cocoa)?, widget: boolean, default: false }
+
+      # ─────────────────────────────────────────
+      - file: content/services.json
+        label: 🩺 Serveis (cards de la home)
+        name: services
+        description: Els 6 serveis amb foto que apareixen a la home i a /serveis.
+        fields:
+          - name: items
+            label: Serveis
+            widget: list
+            label_singular: Servei
+            summary: '{{fields.title}}'
+            fields:
+              - { name: title, label: Títol, widget: string }
+              - { name: description, label: Descripció, widget: text }
+              - { name: image, label: Foto del servei, widget: image, hint: 'Aspecte 4:3 ideal. Es retalla automàticament.' }
+
+      # ─────────────────────────────────────────
+      - file: content/centre.json
+        label: 🏛️ El centre (galería interior)
+        name: centre
+        description: Secció "El centre" de la home — títol, intro i 4 fotos del local.
+        fields:
+          - { name: title, label: Títol (negre), widget: string, hint: 'Ex: Un espai pensat' }
+          - { name: title_italic, label: Títol (cursiva taupe), widget: string, hint: 'Ex: per moure''t.' }
+          - { name: intro, label: Text introductori, widget: text }
+          - name: photos
+            label: Fotos
+            widget: list
+            label_singular: Foto
+            summary: '{{fields.caption}}'
+            fields:
+              - { name: src, label: Imatge, widget: image }
+              - { name: caption, label: Llegenda, widget: string }
+
+      # ─────────────────────────────────────────
+      - file: content/site.json
+        label: 🖼️ Hero i façana
+        name: site
+        description: Foto principal de la portada i foto de la façana a /contacte.
+        fields:
+          - { name: hero_image, label: Foto principal del hero, widget: image, hint: 'La foto gran de la portada (vertical 3:4 ideal).' }
+          - { name: hero_image_caption, label: Llegenda sota el hero, widget: string }
+          - { name: facade_image, label: Foto de la façana del centre, widget: image, hint: 'Apareix a /contacte al costat de l''horari.' }

@@ -9,7 +9,7 @@ export default function ServiceCard({
   description,
   image,
 }: {
-  icon: ReactNode;
+  icon?: ReactNode;
   title: string;
   description: string;
   image?: string;

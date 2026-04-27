@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "title": "Fisioteràpia",
+      "description": "Tractament manual i personalitzat per resoldre lesions, dolors crònics i recuperar la mobilitat amb una visió de conjunt del teu cos.",
+      "image": "/images/services/fisioterapia.jpg"
+    },
+    {
+      "title": "Exercici Terapèutic",
+      "description": "Programes d'exercici dissenyats a mida per fer-te més fort, prevenir recaigudes i tornar al que més t'agrada amb confiança.",
+      "image": "/images/services/exercici.jpg"
+    },
+    {
+      "title": "Punció Seca",
+      "description": "Tècnica precisa per desactivar punts gallet i alleujar dolor muscular profund, integrada dins del teu pla de tractament.",
+      "image": "/images/services/puncio.jpg"
+    },
+    {
+      "title": "Teràpia Manual",
+      "description": "Mobilitzacions, manipulacions i tècniques de teixit tou per restaurar el moviment articular sense forçar.",
+      "image": "/images/services/terapia-manual.jpg"
+    },
+    {
+      "title": "Readaptació Esportiva",
+      "description": "Fas esport? Et tornem al teu nivell —o més enllà— amb una progressió ben pautada i sense saltar-nos passos.",
+      "image": "/images/services/readaptacio.jpg"
+    },
+    {
+      "title": "Sòl Pelvià",
+      "description": "Valoració i tractament específic en pre-postpart, incontinència, dolor pelvià i salut íntima a totes les etapes.",
+      "image": "/images/services/sol-pelvia.jpg"
+    }
+  ]
+}

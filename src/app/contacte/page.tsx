@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectionEyebrow from "@/components/SectionEyebrow";
 import Reveal from "@/components/motion/Reveal";
 import { ADDRESS, EMAIL, HOURS, PHONE_DISPLAY, telLink, waLink } from "@/lib/contact";
+import siteData from "../../../content/site.json";
 
 export const metadata: Metadata = {
   title: "Contacte",
@@ -109,7 +110,7 @@ export default function ContactePage() {
           <div className="relative h-full min-h-[320px] overflow-hidden bg-[color:var(--surface-soft)]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/fachada.jpg"
+              src={siteData.facade_image}
               alt="Façana del centre MAGNA Fisioteràpia"
               className="absolute inset-0 w-full h-full object-cover"
               loading="lazy"

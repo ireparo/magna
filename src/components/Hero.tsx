@@ -5,6 +5,7 @@ import { LineReveal } from "@/components/effects/TextReveal";
 import Counter from "@/components/effects/Counter";
 import MagneticLink from "@/components/effects/MagneticLink";
 import { waLink } from "@/lib/contact";
+import siteData from "../../content/site.json";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -124,7 +125,7 @@ export default function Hero() {
           <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-[color:var(--surface-soft)]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/hero-treatment.jpg"
+              src={siteData.hero_image}
               alt="Fisioterapeuta de MAGNA tractant una pacient amb teràpia manual"
               className="w-full h-full object-cover"
               loading="eager"
@@ -166,7 +167,7 @@ export default function Hero() {
           {/* Editorial caption beneath photo */}
           <div className="mt-6 hidden md:flex items-center gap-3 text-[color:var(--muted)]">
             <span className="rule-thin w-8 max-w-[40px]" />
-            <span className="smallcaps">Sessió real · Teràpia manual</span>
+            <span className="smallcaps">{siteData.hero_image_caption}</span>
           </div>
         </motion.aside>
       </div>

@@ -6,67 +6,13 @@ import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 import Marquee from "@/components/effects/Marquee";
 import { waLink } from "@/lib/contact";
 import Link from "next/link";
+import servicesData from "../../content/services.json";
+import centreData from "../../content/centre.json";
 
-const MARQUEE_SERVICES = [
-  "Fisioteràpia",
-  "Exercici Terapèutic",
-  "Punció Seca",
-  "Teràpia Manual",
-  "Readaptació Esportiva",
-  "Sòl Pelvià",
-];
+const MARQUEE_SERVICES = servicesData.items.map(s => s.title);
 
-const HOME_SERVICES = [
-  {
-    title: "Fisioteràpia",
-    description:
-      "Tractament manual i personalitzat per resoldre lesions, dolors crònics i recuperar la mobilitat amb una visió de conjunt del teu cos.",
-    image: "/images/services/fisioterapia.jpg",
-    icon: null,
-  },
-  {
-    title: "Exercici Terapèutic",
-    description:
-      "Programes d'exercici dissenyats a mida per fer-te més fort, prevenir recaigudes i tornar al que més t'agrada amb confiança.",
-    image: "/images/services/exercici.jpg",
-    icon: null,
-  },
-  {
-    title: "Punció Seca",
-    description:
-      "Tècnica precisa per desactivar punts gallet i alleujar dolor muscular profund, integrada dins del teu pla de tractament.",
-    image: "/images/services/puncio.jpg",
-    icon: null,
-  },
-  {
-    title: "Teràpia Manual",
-    description:
-      "Mobilitzacions, manipulacions i tècniques de teixit tou per restaurar el moviment articular sense forçar.",
-    image: "/images/services/terapia-manual.jpg",
-    icon: null,
-  },
-  {
-    title: "Readaptació Esportiva",
-    description:
-      "Fas esport? Et tornem al teu nivell —o més enllà— amb una progressió ben pautada i sense saltar-nos passos.",
-    image: "/images/services/readaptacio.jpg",
-    icon: null,
-  },
-  {
-    title: "Sòl Pelvià",
-    description:
-      "Valoració i tractament específic en pre-postpart, incontinència, dolor pelvià i salut íntima a totes les etapes.",
-    image: "/images/services/sol-pelvia.jpg",
-    icon: null,
-  },
-];
-
-const CENTRE_PHOTOS = [
-  { src: "/images/centre/sala-1.jpg", caption: "Sala de tractament" },
-  { src: "/images/centre/sala-2.jpg", caption: "Espai exercici" },
-  { src: "/images/centre/sala-3.jpg", caption: "Mirall de control postural" },
-  { src: "/images/centre/sala-4.jpg", caption: "Recepció" },
-];
+const HOME_SERVICES = servicesData.items;
+const CENTRE_PHOTOS = centreData.photos;
 
 const STEPS = [
   {
@@ -253,13 +199,13 @@ export default function Home() {
               <div>
                 <SectionEyebrow no="04" label="El centre" />
                 <h2 className="font-display text-[2.6rem] sm:text-[3.4rem] md:text-[4rem] leading-[1] tracking-[-0.02em] text-[color:var(--foreground)]">
-                  Un espai pensat
+                  {centreData.title}
                   <br />
-                  <span className="font-display-italic text-[color:var(--primary)]">per moure&apos;t.</span>
+                  <span className="font-display-italic text-[color:var(--primary)]">{centreData.title_italic}</span>
                 </h2>
               </div>
               <p className="text-base md:text-lg text-[color:var(--foreground-soft)] leading-relaxed md:max-w-md md:justify-self-end">
-                Sala de tractament privada, espai d&apos;exercici amb material seriós, mirall per al control postural. Tot pensat perquè la sessió flueixi: del manual al moviment.
+                {centreData.intro}
               </p>
             </div>
           </Reveal>

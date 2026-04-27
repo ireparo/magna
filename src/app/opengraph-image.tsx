@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import fs from "node:fs";
+import path from "node:path";
 
 export const dynamic = "force-static";
 
@@ -7,7 +9,16 @@ export const alt =
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+// El logo es vector PDF→PNG embebido como data URL en build time
+function loadLogoDataUrl(): string {
+  const logoPath = path.join(process.cwd(), "public", "brand", "magna-logo.png");
+  const buffer = fs.readFileSync(logoPath);
+  return `data:image/png;base64,${buffer.toString("base64")}`;
+}
+
 export default async function OpengraphImage() {
+  const logoSrc = loadLogoDataUrl();
+
   return new ImageResponse(
     (
       <div
@@ -24,7 +35,7 @@ export default async function OpengraphImage() {
           color: "#2A1F18",
         }}
       >
-        {/* Top: editorial eyebrow */}
+        {/* Top eyebrow */}
         <div
           style={{
             display: "flex",
@@ -40,10 +51,10 @@ export default async function OpengraphImage() {
         >
           <span>Núm. 01</span>
           <span style={{ width: "60px", height: "1px", background: "rgba(74,52,38,0.25)" }} />
-          <span>Lleida · Fisioteràpia &amp; moviment</span>
+          <span>Lleida · 2026</span>
         </div>
 
-        {/* Middle: big serif headline + claim */}
+        {/* Big serif headline + claim */}
         <div
           style={{
             display: "flex",
@@ -77,11 +88,11 @@ export default async function OpengraphImage() {
               fontFamily: "system-ui",
             }}
           >
-            Fisioteràpia i exercici terapèutic. Et tractem i t'ensenyem a moure't millor.
+            Fisioteràpia i exercici terapèutic. Et tractem i t&apos;ensenyem a moure&apos;t millor.
           </div>
         </div>
 
-        {/* Bottom: wordmark + tagline */}
+        {/* Bottom: official MAGNA logo + domain */}
         <div
           style={{
             display: "flex",
@@ -89,46 +100,13 @@ export default async function OpengraphImage() {
             justifyContent: "space-between",
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "baseline",
-              gap: "20px",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                fontSize: "56px",
-                fontWeight: 500,
-                letterSpacing: "-0.025em",
-                color: "#2A1F18",
-                lineHeight: 1,
-              }}
-            >
-              <span>Magn</span>
-              <span style={{ fontStyle: "italic", color: "#8B6F5A" }}>a</span>
-            </div>
-            <div
-              style={{
-                width: "1px",
-                height: "32px",
-                background: "rgba(74,52,38,0.30)",
-              }}
-            />
-            <div
-              style={{
-                fontSize: "16px",
-                fontWeight: 600,
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-                color: "#8B7A6B",
-                fontFamily: "system-ui",
-              }}
-            >
-              Fisioteràpia
-            </div>
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={logoSrc}
+            alt="MAGNA Fisioteràpia"
+            width={380}
+            style={{ display: "block" }}
+          />
 
           <div
             style={{

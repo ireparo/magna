@@ -3,9 +3,9 @@
   "title_italic": "per moure't.",
   "intro": "Sala de tractament privada, espai d'exercici amb material seriós, mirall per al control postural. Tot pensat perquè la sessió flueixi: del manual al moviment.",
   "photos": [
-    { "src": "/images/centre/sala-1.jpg", "caption": "Sala de tractament" },
-    { "src": "/images/centre/sala-2.jpg", "caption": "Espai exercici" },
-    { "src": "/images/centre/sala-3.jpg", "caption": "Mirall de control postural" },
-    { "src": "/images/centre/sala-4.jpg", "caption": "Recepció" }
+    { "src": "/images/centre/sala-1.jpg", "caption": "Sala d'exercici" },
+    { "src": "/images/centre/sala-2.jpg", "caption": "Material i equipament" },
+    { "src": "/images/centre/sala-3.jpg", "caption": "Sala d'espera" },
+    { "src": "/images/centre/sala-4.jpg", "caption": "Sala de tractament" }
   ]
 }

@@ -15,6 +15,7 @@ const SERVICES = [
   {
     title: "Fisioteràpia",
     summary: "Tractament integral de lesions i dolors musculoesquelètics.",
+    image: "/images/services/fisioterapia.jpg",
     bullets: [
       "Mal d'esquena, cervical i cefalees",
       "Tendinopaties (espatlla, colze, genoll, tendó d'Aquiles)",
@@ -25,6 +26,7 @@ const SERVICES = [
   {
     title: "Exercici Terapèutic",
     summary: "El nostre tret diferencial: tractem amb exercici, no només a la llitera.",
+    image: "/images/services/exercici.jpg",
     bullets: [
       "Programa personalitzat segons la teva lesió i objectius",
       "Sessions individuals supervisades al centre",
@@ -35,6 +37,7 @@ const SERVICES = [
   {
     title: "Punció Seca",
     summary: "Tècnica precisa per desactivar punts gallet musculars.",
+    image: "/images/services/puncio.jpg",
     bullets: [
       "Alleujament ràpid de dolor profund",
       "Integrada dins del pla global de tractament",
@@ -44,6 +47,7 @@ const SERVICES = [
   {
     title: "Teràpia Manual",
     summary: "Mobilitzacions, manipulacions i tècniques de teixit tou.",
+    image: "/images/services/terapia-manual.jpg",
     bullets: [
       "Restaura mobilitat articular sense forçar",
       "Tècniques miofascials i neurodinàmica",
@@ -53,6 +57,7 @@ const SERVICES = [
   {
     title: "Readaptació Esportiva",
     summary: "Tornem a fer esport segurs i forts.",
+    image: "/images/services/readaptacio.jpg",
     bullets: [
       "Progressions específiques per al teu esport",
       "Test de força i criteris objectius per pujar càrrega",
@@ -62,6 +67,7 @@ const SERVICES = [
   {
     title: "Sòl Pelvià",
     summary: "Salut íntima a totes les etapes de la vida.",
+    image: "/images/services/sol-pelvia.jpg",
     bullets: [
       "Pre-postpart i recuperació funcional",
       "Incontinència urinària i prolapses",
@@ -97,6 +103,15 @@ export default function ServeisPage() {
           {SERVICES.map((s, idx) => (
             <StaggerItem key={s.title} className="bg-[color:var(--background)]">
               <article className="p-8 md:p-10 h-full">
+                <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-7 group">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={s.image}
+                    alt={s.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    loading="lazy"
+                  />
+                </div>
                 <div className="flex items-baseline gap-4 mb-5">
                   <span className="numeral text-[2.4rem]">
                     {String(idx + 1).padStart(2, "0")}

@@ -137,8 +137,8 @@ export default function Home() {
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/jessica-coach.jpg"
-                  alt="Jessica, fisioterapeuta de MAGNA, a la sala d'exercici"
+                  src="/images/correction-coaching.jpg"
+                  alt="Fisioterapeuta de MAGNA corregint la postura d'una pacient en una sentadilla"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />

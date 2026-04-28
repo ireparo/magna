@@ -134,25 +134,35 @@ export default function Home() {
 
           <Reveal delay={0.15}>
             <div className="relative">
-              <div className="aspect-[4/5] rounded-2xl bg-[color:var(--surface)] border border-[color:var(--border-strong)] p-8 md:p-10 relative overflow-hidden">
-                <span aria-hidden className="absolute top-6 right-7 numeral text-[3.5rem]">02</span>
-                <div className="absolute inset-0 opacity-50" aria-hidden style={{
-                  backgroundImage: "radial-gradient(circle at 80% 20%, rgba(217,196,173,0.45), transparent 50%), radial-gradient(circle at 15% 85%, rgba(201,154,138,0.30), transparent 55%)",
-                }} />
-                <div className="relative h-full flex flex-col justify-between">
-                  <div className="flex flex-wrap gap-2">
-                    {["Força", "Mobilitat", "Control motor", "Resistència"].map((t) => (
-                      <span key={t} className="px-3 py-1 rounded-full bg-[color:var(--surface-soft)] text-[0.72rem] font-medium text-[color:var(--primary-deep)] border border-[color:var(--border)]">{t}</span>
-                    ))}
-                  </div>
-                  <div>
-                    <p className="font-display text-[2rem] md:text-[2.6rem] text-[color:var(--primary-deep)] leading-[1.05] tracking-tight">
-                      Del &ldquo;em fa mal&rdquo; <span className="font-display-italic text-[color:var(--primary)]">al &ldquo;ho controlo&rdquo;.</span>
-                    </p>
-                    <p className="mt-4 text-sm text-[color:var(--muted)]">
-                      Et donem eines, no només sessions.
-                    </p>
-                  </div>
+              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/jessica-coach.jpg"
+                  alt="Jessica, fisioterapeuta de MAGNA, a la sala d'exercici"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <span aria-hidden className="absolute top-5 right-7 numeral text-[3.5rem] !text-[color:var(--surface)] drop-shadow-md">02</span>
+
+                {/* Tags chips floating on photo */}
+                <div className="absolute top-6 left-6 flex flex-wrap gap-2 max-w-[70%]">
+                  {["Força", "Mobilitat", "Control motor", "Resistència"].map((t) => (
+                    <span key={t} className="px-3 py-1 rounded-full bg-[color:var(--surface)]/85 backdrop-blur-sm text-[0.72rem] font-medium text-[color:var(--primary-deep)] border border-[color:var(--border)]">{t}</span>
+                  ))}
+                </div>
+
+                {/* Bottom overlay with claim */}
+                <div
+                  aria-hidden
+                  className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[rgba(42,31,24,0.85)] via-[rgba(42,31,24,0.4)] to-transparent"
+                />
+                <div className="absolute inset-x-0 bottom-0 p-7 md:p-9 text-[color:var(--surface)]">
+                  <p className="font-display text-[1.8rem] md:text-[2.4rem] leading-[1.05] tracking-tight">
+                    Del &ldquo;em fa mal&rdquo; <span className="font-display-italic">al &ldquo;ho controlo&rdquo;.</span>
+                  </p>
+                  <p className="mt-3 text-sm opacity-85">
+                    Et donem eines, no només sessions.
+                  </p>
                 </div>
               </div>
             </div>

@@ -66,6 +66,32 @@ export default function ExerciciPage() {
         </Reveal>
       </section>
 
+      {/* Editorial photo strip — bridge between hero and detail content */}
+      <section className="max-w-7xl mx-auto mt-20">
+        <Reveal>
+          <div className="relative aspect-[16/10] rounded-2xl overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/exercici-hero.jpg"
+              alt="Jessica, fisioterapeuta a MAGNA, asseguda a la sala de tractament"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-gradient-to-t from-[rgba(42,31,24,0.55)] via-transparent to-transparent"
+            />
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 text-[color:var(--surface)]">
+              <span className="smallcaps opacity-80">Jessica · MAGNA</span>
+              <p className="font-display text-[1.6rem] md:text-[2.2rem] mt-2 leading-tight max-w-xl">
+                Et tractem i t&apos;ensenyem
+                <span className="font-display-italic"> a moure&apos;t millor.</span>
+              </p>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
       {/* Qué es / Qué no es */}
       <section className="max-w-7xl mx-auto mt-24 grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-center">
         <Reveal>

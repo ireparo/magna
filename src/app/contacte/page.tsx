@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import SectionEyebrow from "@/components/SectionEyebrow";
 import Reveal from "@/components/motion/Reveal";
-import { ADDRESS, EMAIL, HOURS, PHONE_DISPLAY, telLink, waLink } from "@/lib/contact";
+import { ADDRESS, EMAIL, HOURS, INSTAGRAM, INSTAGRAM_URL, PHONE_DISPLAY, telLink, waLink } from "@/lib/contact";
 import siteData from "../../../content/site.json";
 
 export const metadata: Metadata = {
@@ -34,6 +34,14 @@ const CHANNELS = [
     external: false,
     highlighted: false,
   },
+  {
+    label: "Instagram",
+    value: `@${INSTAGRAM}`,
+    href: INSTAGRAM_URL,
+    cta: "Seguir a Instagram",
+    external: true,
+    highlighted: false,
+  },
 ];
 
 export default function ContactePage() {
@@ -58,7 +66,7 @@ export default function ContactePage() {
 
       {/* Canales — strip de 3 con dividers */}
       <section className="max-w-7xl mx-auto mt-20">
-        <div className="grid md:grid-cols-3 gap-px bg-[color:var(--border)] border-y border-[color:var(--border)]">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[color:var(--border)] border-y border-[color:var(--border)]">
           {CHANNELS.map((c, idx) => (
             <article
               key={c.label}

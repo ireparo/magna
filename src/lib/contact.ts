@@ -5,6 +5,8 @@ export const PHONE_DISPLAY = data.phone_display;
 export const EMAIL = data.email;
 export const ADDRESS = data.address;
 export const HOURS = data.hours;
+export const INSTAGRAM = data.instagram;
+export const INSTAGRAM_URL = `https://www.instagram.com/${data.instagram}/`;
 
 export function waLink(message: string): string {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;

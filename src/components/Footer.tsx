@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Logo from "./Logo";
-import { ADDRESS, EMAIL, HOURS, PHONE_DISPLAY, telLink, waLink } from "@/lib/contact";
+import { ADDRESS, EMAIL, HOURS, INSTAGRAM, INSTAGRAM_URL, PHONE_DISPLAY, telLink, waLink } from "@/lib/contact";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -44,6 +44,12 @@ export default function Footer() {
               label="WhatsApp"
               value="Enviar missatge"
               href={waLink("Hola MAGNA, voldria informació.")}
+              external
+            />
+            <ContactRow
+              label="Instagram"
+              value={`@${INSTAGRAM}`}
+              href={INSTAGRAM_URL}
               external
             />
             <li>

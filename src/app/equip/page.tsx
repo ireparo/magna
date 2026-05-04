@@ -18,14 +18,17 @@ const VALUES = [
   {
     title: "Una hora és una hora",
     text: "Cap sessió compartida ni superposada. El temps que reserves és teu, sencer.",
+    icon: "/icons/hora.svg",
   },
   {
     title: "Tu primer, la tècnica després",
     text: "Escoltem què t'ha passat, què esperes i com vius la lesió. La tècnica vindrà després.",
+    icon: "/icons/escoltar.svg",
   },
   {
     title: "L'alta com a objectiu",
     text: "L'èxit és que no ens necessitis. Treballem perquè surtis amb autonomia.",
+    icon: "/icons/alta.svg",
   },
 ];
 
@@ -49,15 +52,45 @@ export default function EquipPage() {
         </Reveal>
       </section>
 
+      {/* Hero image — banner */}
+      <section className="max-w-7xl mx-auto mt-20">
+        <Reveal>
+          <div className="relative aspect-[21/9] rounded-2xl overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/hero-treatment.jpg"
+              alt="Sessió de tractament al centre MAGNA"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-gradient-to-t from-[rgba(42,31,24,0.55)] via-transparent to-transparent"
+            />
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 text-[color:var(--surface)]">
+              <span className="smallcaps opacity-80">L&apos;equip MAGNA</span>
+              <p className="font-display text-[1.6rem] md:text-[2.2rem] mt-2 leading-tight max-w-xl">
+                El teu fisioterapeuta de principi
+                <span className="font-display-italic"> a fi.</span>
+              </p>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
       {/* Valores — manifesto strip */}
       <section className="max-w-7xl mx-auto mt-20">
         <StaggerGroup className="grid md:grid-cols-3 gap-px bg-[color:var(--border)] border-y border-[color:var(--border)]">
           {VALUES.map((v, idx) => (
             <StaggerItem key={v.title} className="bg-[color:var(--background)]">
               <div className="p-8 md:p-10 h-full">
-                <div className="flex items-baseline gap-4 mb-5">
-                  <span className="numeral text-[2.4rem]">{`0${idx + 1}`}</span>
-                  <span className="smallcaps text-[color:var(--muted)]">Valor</span>
+                <div className="flex items-center gap-4 mb-5">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={v.icon} alt="" aria-hidden width={36} height={36} style={{ filter: "brightness(0) saturate(100%) invert(47%) sepia(11%) saturate(1057%) hue-rotate(341deg) brightness(93%) contrast(86%)" }} />
+                  <div className="flex items-baseline gap-3">
+                    <span className="numeral text-[2.4rem]">{`0${idx + 1}`}</span>
+                    <span className="smallcaps text-[color:var(--muted)]">Valor</span>
+                  </div>
                 </div>
                 <h3 className="font-display text-[1.5rem] text-[color:var(--foreground)] leading-tight">
                   {v.title}

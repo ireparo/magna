@@ -43,6 +43,34 @@ export default function TarifesPage() {
         </Reveal>
       </section>
 
+      {/* Banner visual */}
+      <section className="max-w-7xl mx-auto mt-16">
+        <Reveal>
+          <div className="relative aspect-[21/9] rounded-2xl overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/team/jessica-portrait.jpg"
+              alt="Jessica, fisioterapeuta a MAGNA, atenent un pacient"
+              className="w-full h-full object-cover object-top"
+              loading="lazy"
+            />
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-gradient-to-r from-[rgba(42,31,24,0.6)] via-[rgba(42,31,24,0.25)] to-transparent"
+            />
+            <div className="absolute inset-y-0 left-0 flex items-center p-6 md:p-10 text-[color:var(--surface)]">
+              <div>
+                <span className="smallcaps opacity-80">Sessions d&apos;una hora</span>
+                <p className="font-display text-[1.6rem] md:text-[2.2rem] mt-2 leading-tight max-w-sm">
+                  El teu temps,
+                  <span className="font-display-italic"> sencer.</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
       {/* Plans */}
       <section className="max-w-7xl mx-auto mt-20">
         <StaggerGroup className="grid md:grid-cols-3 gap-px bg-[color:var(--border)] border-y border-[color:var(--border)]">

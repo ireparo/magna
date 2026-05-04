@@ -6,6 +6,7 @@
     { "src": "/images/centre/sala-1.jpg", "caption": "Sala d'exercici" },
     { "src": "/images/centre/sala-2.jpg", "caption": "Material i equipament" },
     { "src": "/images/centre/sala-3.jpg", "caption": "Sala d'espera" },
-    { "src": "/images/centre/sala-4.jpg", "caption": "Sala de tractament" }
+    { "src": "/images/centre/sala-4.jpg", "caption": "Sala de tractament" },
+    { "src": "/images/centre/recepcio.jpg", "caption": "Recepció" }
   ]
 }

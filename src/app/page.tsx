@@ -19,16 +19,19 @@ const STEPS = [
     n: "I",
     title: "Valoració inicial",
     text: "60 minuts per entendre què et passa, com va començar i què esperes recuperar. Anamnesi i exploració completa.",
+    icon: "/icons/valoracio.svg",
   },
   {
     n: "II",
     title: "Tractament + plan",
     text: "Combinem teràpia manual, punció seca o tècniques específiques amb un pla d'exercici per fer a casa.",
+    icon: "/icons/tractament.svg",
   },
   {
     n: "III",
     title: "Tornar a moure's bé",
     text: "Seguim el teu progrés sessió a sessió i et donem l'alta quan ja no ens necessites. Aquest és l'objectiu.",
+    icon: "/icons/moviment.svg",
   },
 ];
 
@@ -188,9 +191,13 @@ export default function Home() {
             {STEPS.map((s) => (
               <StaggerItem key={s.n} className="bg-[color:var(--background)]">
                 <div className="p-8 md:p-10 h-full">
-                  <div className="flex items-baseline gap-4 mb-5">
-                    <span className="numeral text-[2.4rem]">{s.n}</span>
-                    <span className="smallcaps text-[color:var(--muted)]">Pas</span>
+                  <div className="flex items-center gap-4 mb-5">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={s.icon} alt="" aria-hidden width={40} height={40} className="text-[color:var(--primary)]" style={{ filter: "brightness(0) saturate(100%) invert(47%) sepia(11%) saturate(1057%) hue-rotate(341deg) brightness(93%) contrast(86%)" }} />
+                    <div className="flex items-baseline gap-3">
+                      <span className="numeral text-[2.4rem]">{s.n}</span>
+                      <span className="smallcaps text-[color:var(--muted)]">Pas</span>
+                    </div>
                   </div>
                   <h3 className="font-display text-[1.6rem] text-[color:var(--foreground)] leading-tight">{s.title}</h3>
                   <p className="mt-3 text-[15px] text-[color:var(--foreground-soft)] leading-relaxed">{s.text}</p>
@@ -231,7 +238,9 @@ export default function Home() {
                     ? "md:col-span-5"
                     : i === 2
                     ? "md:col-span-3"
-                    : "md:col-span-2"
+                    : i === 3
+                    ? "md:col-span-2"
+                    : "md:col-span-5"
                 }
               >
                 <figure className="relative overflow-hidden rounded-2xl aspect-[4/3] group">

@@ -1,0 +1,14 @@
+{
+  "name": "magna-fisioterapia-icons",
+  "preset": "minimal-custom",
+  "grid": 48,
+  "strokeWidth": 1.5,
+  "strokeLinecap": "round",
+  "strokeLinejoin": "round",
+  "cornerRadius": 0,
+  "padding": 4,
+  "opticalBalance": true,
+  "iconCount": 6,
+  "icons": ["valoracio", "tractament", "moviment", "hora", "escoltar", "alta"],
+  "generated": "2026-05-04"
+}
